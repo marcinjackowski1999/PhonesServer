@@ -9,14 +9,13 @@ router.put('/:id', function(req, res, next) {
     if (err) return next(err);
 
     var agent = require('../apn/header.js')
-    var device = post.deviceToken;
-    var alert = req.body.alert
+    var device = post.deviceToken
+    var alert = "test"
 
     agent.createMessage()
       .device(device)
-      .sound()
+      .sound('bingbong.aiff')
       .alert(alert)
-      .contentAvailable(1)
       .send();
 
     res.json(post);
