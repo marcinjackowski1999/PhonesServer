@@ -10,7 +10,7 @@ router.put('/:id', function(req, res, next) {
 
     var agent = require('../apn/header.js')
     var device = post.deviceToken
-    var alert = "test"
+    var alert = String(req.body.alert)
 
     agent.createMessage()
       .device(device)
